@@ -30,7 +30,6 @@ class _ClockState extends State<Clock> {
 
   @override
   Widget build(BuildContext context) {
-
     List dateDateTime = getCurrentDateTime();
     Data data = getTimeString(dateDateTime[2]);
 
@@ -53,15 +52,51 @@ class _ClockState extends State<Clock> {
                 Text(
                   dateDateTime[0],
                   style: TextStyle(
+                      shadows: [
+                        Shadow(
+                          blurRadius: 8.0,
+                          color: Colors.black45,
+                          offset: Offset(2.0, 2.0),
+                        ),
+                        Shadow(
+                          color: Colors.black45,
+                          blurRadius: 8.0,
+                          offset: Offset(-4.0, 2.0),
+                        ),
+                      ],
                       fontSize: 30, color: Colors.white, fontFamily: "Lora"),
                 ),
                 Text(
                   dateDateTime[1],
                   style: TextStyle(
+                      shadows: [
+                        Shadow(
+                          blurRadius: 8.0,
+                          color: Colors.black45,
+                          offset: Offset(2.0, 2.0),
+                        ),
+                        Shadow(
+                          color: Colors.black45,
+                          blurRadius: 8.0,
+                          offset: Offset(-4.0, 2.0),
+                        ),
+                      ],
                       fontSize: 120, color: Colors.white, fontFamily: "Lora"),
                 ),
                 Text(data.timeText,
                     style: TextStyle(
+                        shadows: [
+                          Shadow(
+                            blurRadius: 8.0,
+                            color: Colors.black45,
+                            offset: Offset(2.0, 2.0),
+                          ),
+                          Shadow(
+                            color: Colors.black45,
+                            blurRadius: 8.0,
+                            offset: Offset(-4.0, 2.0),
+                          ),
+                        ],
                         fontSize: 20, color: Colors.white, fontFamily: "Lora"))
               ],
             )),
@@ -95,15 +130,15 @@ class _ClockState extends State<Clock> {
 
     if (currentTime.isBefore(goodMorningEnd) &&
         currentTime.isAfter(goodMorningStart)) {
-      return Data("Good Morning", "assets/morning.jpg");
+      return Data("Good Morning", "assets/morning.webp");
     } else if (currentTime.isBefore(goodAfternoonEnd) &&
         currentTime.isAfter(goodAfternoonStart)) {
-      return Data("Good Afternoon", "assets/evening.jpg");
+      return Data("Good Afternoon", "assets/afternoon.webp");
     } else if (currentTime.isBefore(goodEveningEnd) &&
         currentTime.isAfter(goodEveningStart)) {
-      return Data("Good Evening", "assets/night.jpg");
+      return Data("Good Evening", "assets/evening.webp");
     } else {
-      return Data("Good Evening", "assets/night.jpg");
+      return Data("Good Evening", "assets/evening.webp");
     }
   }
 }
